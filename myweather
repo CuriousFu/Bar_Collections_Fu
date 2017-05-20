@@ -20,6 +20,7 @@ ICON_RAINY=""
 ICON_STORM=""
 ICON_SNOW=""
 ICON_FOG=""
+ICON_HAZE="≡"
 
 SYMBOL_CELSIUS="℃"
 
@@ -49,6 +50,8 @@ elif [[ "${WEATHER_MAIN}" = *Clear* ]]; then
   ICON=${ICON_SUNNY}
 elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
   ICON=${ICON_FOG}
+elif [[ "${WEATHER_MAIN}" = *Haze* ]]; then
+  ICON=${ICON_HAZE}
 fi
 
 echo "%{F#28ffb1}${ICON}%{F-} ${WEATHER_TEMP}${SYMBOL_CELSIUS}" 
