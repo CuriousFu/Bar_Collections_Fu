@@ -132,7 +132,7 @@ enable-ipc = true
 dpi = 72
 bottom = true
 width = 100%
-height = 19
+height = 20
 offset-x = 0
 offset-y = 0
 ;radius = 9.0
@@ -179,7 +179,7 @@ tray-position = right
 
 [module/xwindow]
 type = internal/xwindow
-label = "   %{F#5b5b5b}%{F-} %title:0:60:...%"
+label = "   %{F#5b5b5b}%{F#ef9e78} %title:0:60:...%"
 
 [module/xkeyboard]
 type = internal/xkeyboard
