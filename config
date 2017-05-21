@@ -169,7 +169,7 @@ font-3 = FontAwesome:pixelsize=14;2
 modules-left = i3 
 ;modules-left = volume demo
 modules-center = 
-modules-right =  lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime pkg volume powermenu 
+modules-right =  lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime trash pkg volume powermenu 
 ;modules-right = temperature filesystem-slash filesystem-home cpu memory
 
 tray-position = right
@@ -207,6 +207,7 @@ type = internal/fs
 interval = 1800
 
 mount-0 = /
+;label-mounted = "%{F#e60053}%{F-} %percentage_used%%"
 label-mounted = "%{F#e60053}%{F-} %percentage_used%%"
 
 ;label-unmounted = %mountpoint%: not mounted
@@ -633,7 +634,8 @@ label = " %{T5}%output%%{T-}"
 [module/externalip]
 type = custom/script
 exec = curl -s http://ip-api.com/json | jq -M -r .query
-format =%{F#ff4eee} %{F-} <label>
+format =%{F#ff4eee} %{F-} <label>
+;format =%{F#ff4eee} %{F-} <label>
 format-foreground = #FFFFFF
 interval = 300
 
@@ -668,6 +670,7 @@ menu-1-0 = 
 menu-1-0-exec = menu-open-0
 menu-1-0-foreground = ${colors.green}
 menu-1-1 =  Reboot
+
 menu-1-1-exec = sudo reboot
 menu-1-1-foreground = ${colors.yellow}
 
@@ -701,8 +704,15 @@ double-click-left = polybar-msg -p %pid% hook demo 3
 type = custom/script
 exec = ~/.config/polybar/uptime.sh
 format =%{F#e60864} %{F-}<label>
+;format =%{F#e60864} %{F-}<label>
 ;format-foreground = ${colors.foreground}
 ;interval = 60
+
+[module/trash]
+type = custom/script
+exec = ~/.config/polybar/trash.sh
+;format =%{F#e60864} %{F-}<label>
+format =%{F#3333e4} %{F-}<label>
 
 [module/weather]
 type = custom/script
