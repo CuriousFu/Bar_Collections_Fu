@@ -455,6 +455,7 @@ type = internal/network
 ;interface = wlp2s0
 interface = enp4s0f2
 label-connected = "%{F#e60053}%{F-}%downspeed:7% %{F#e60053} %{F-}%upspeed:7%"
+format =   <label>
 format-connected = <label-connected>
 ;format-connected-prefix = " "
 ;format-connected-prefix-foreground = #5b
@@ -629,6 +630,12 @@ label = " %{T5}%output%%{T-}"
 ;exec = jdate +%W|grep -o --color=never -e ........$|fribidi --ltr
 ;exec = jdate +%G|fribidi --ltr
 
+[module/externalip]
+type = custom/script
+exec = curl -s http://ip-api.com/json | jq -M -r .query
+format =%{F#ff4eee} %{F-} <label>
+format-foreground = #FFFFFF
+interval = 300
 
 [module/powermenu]
 type = custom/menu
