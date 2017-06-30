@@ -7,6 +7,7 @@ check=$((pac + aur))
 while [[ "$check" != "0" ]]
 do
     echo "$pac %{F#ff00b7}%{F-} $aur"
+    sleep 2s
     pacaur -Syu --noconfirm --noedit
     if [ $? -eq 0 ]
     then
