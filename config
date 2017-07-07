@@ -169,7 +169,7 @@ font-3 = FontAwesome:pixelsize=14;2
 modules-left = i3
 ;modules-left = volume demo
 modules-center =
-modules-right =  lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime pkg trash volume powermenu
+modules-right = mpd cmus lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime pkg trash volume 
 ;modules-right = temperature filesystem-slash filesystem-home cpu memory
 
 tray-position = right
@@ -698,6 +698,17 @@ initial = 1
 click-left = polybar-msg -p %pid% hook demo 1
 click-right = polybar-msg -p %pid% hook demo 2
 double-click-left = polybar-msg -p %pid% hook demo 3
+
+
+[module/cmus]
+type = custom/script
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+format =%{F#e60864} %{F-}<label>
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
+
 
 [module/uptime]
 type = custom/script
