@@ -169,7 +169,7 @@ font-3 = FontAwesome:pixelsize=14;2
 modules-left = i3
 ;modules-left = volume demo
 modules-center =
-modules-right = mpd cmus lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime pkg trash volume 
+modules-right = mocp cmus lanspeed temperature filesystem-slash filesystem-home cpu memory date weather uptime pkg trash volume 
 ;modules-right = temperature filesystem-slash filesystem-home cpu memory
 
 tray-position = right
@@ -708,6 +708,16 @@ interval = 1
 format =%{F#e60864} %{F-}<label>
 click-left = cmus-remote --pause
 click-right = cmus-remote --stop
+
+[module/mocp]
+type = custom/script
+interval = 1
+format = <label>
+format-prefix = "  "
+exec = ~/.config/polybar/mocp
+click-left = mocp -f
+click-right = mocp -r
+click-middle = mocp -P
 
 
 [module/uptime]
